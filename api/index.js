@@ -51,7 +51,7 @@
                         res.send(200);
                         break;
                     case 'charge.succeeded':
-
+                        res.send(200);
                         break;
                     case 'refund.succeeded':
                         res.send(200);
