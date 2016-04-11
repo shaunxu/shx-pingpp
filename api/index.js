@@ -23,7 +23,7 @@
                     id: 'app_5mbLi9zbTeX19qvf'
                 },
                 extra: {
-                    success_url: 'http://pro.wortile.com/success.html'
+                    success_url: 'http://shx-pingpp.azurewebsites.net/success.html'
                 }
             }, function (error, charge) {
                 if (error) {
