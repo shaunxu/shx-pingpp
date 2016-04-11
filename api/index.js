@@ -8,6 +8,8 @@
         var pingpp = require('pingpp')('sk_test_abDyPC8G8840GGGCOKfnX18G');
 
         app.post('/api/pay', function (req, res, next) {
+            console.log(JSON.stringify(req.body, null, 2));
+
             pingpp.charges.create({
                 subject: 'Worktile',
                 body: '企业版付费',
@@ -35,6 +37,44 @@
             });
         });
 
+        app.post('/api/webhooks/pingpp', function (req, res, next) {
+            var event = req.body;
+            if (event) {
+                switch (event.type) {
+                    case 'summary.daily.available':
+                        res.send(200);
+                        break;
+                    case 'summary.weekly.available':
+                        res.send(200);
+                        break;
+                    case 'summary.monthly.available':
+                        res.send(200);
+                        break;
+                    case 'charge.succeeded':
+
+                        break;
+                    case 'refund.succeeded':
+                        res.send(200);
+                        break;
+                    case 'transfer.succeeded':
+                        res.send(200);
+                        break;
+                    case 'red_envelope.sent':
+                        res.send(200);
+                        break;
+                    case 'red_envelope.received':
+                        res.send(200);
+                        break;
+                    default:
+                        res.status(400).send('Invalid type value (' + event.type + ').');
+                        break;
+                }
+            }
+            else {
+                res.status(400).send('No request body detected.');
+            }
+
+        });
     };
 
 })();
