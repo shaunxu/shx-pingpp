@@ -18,7 +18,7 @@
                 }),
                 channel: 'alipay_pc_direct',
                 currency: 'cny',
-                client_ip: req.ip === '::1' ? '127.0.0.1' : req.ip,
+                client_ip: (req.ip && req.ip !== '::1') ? req.ip : '127.0.0.1',
                 app: {
                     id: 'app_5mbLi9zbTeX19qvf'
                 },
