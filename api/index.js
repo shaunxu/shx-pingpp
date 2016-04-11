@@ -5,12 +5,14 @@
 
         var uuid = require('node-uuid');
         var randomstring = require("randomstring");
+        var ipaddr = require('ipaddr.js');
         var pingpp = require('pingpp')('sk_test_abDyPC8G8840GGGCOKfnX18G');
 
         app.post('/api/pay', function (req, res, next) {
             console.log(JSON.stringify({
                 ip: req.ip,
-                ips: req.ips
+                ips: req.ips,
+                result: ipaddr.parse(req.ip).toString()
             }, null, 2));
 
             pingpp.charges.create({
