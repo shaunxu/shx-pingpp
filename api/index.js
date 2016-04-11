@@ -9,11 +9,7 @@
         var pingpp = require('pingpp')('sk_test_abDyPC8G8840GGGCOKfnX18G');
 
         app.post('/api/pay', function (req, res, next) {
-            console.log(JSON.stringify({
-                ip: req.ip,
-                ips: req.ips,
-                result: ipaddr.parse(req.ip).toString()
-            }, null, 2));
+            var ip = ipaddr.process(req.ip || '::1').toString();
 
             pingpp.charges.create({
                 subject: 'Worktile',
@@ -25,7 +21,7 @@
                 }),
                 channel: 'alipay_pc_direct',
                 currency: 'cny',
-                client_ip: (req.ip && req.ip !== '::1') ? req.ip : '127.0.0.1',
+                client_ip: ip === '::1' ? '127.0.0.1' : ip,
                 app: {
                     id: 'app_5mbLi9zbTeX19qvf'
                 },
