@@ -40,29 +40,29 @@
             if (event) {
                 switch (event.type) {
                     case 'summary.daily.available':
-                        res.send(200);
+                        res.sendStatus(200);
                         break;
                     case 'summary.weekly.available':
-                        res.send(200);
+                        res.sendStatus(200);
                         break;
                     case 'summary.monthly.available':
-                        res.send(200);
+                        res.sendStatus(200);
                         break;
                     case 'charge.succeeded':
                         console.log(JSON.stringify(event, null, 2));
-                        res.send(200);
+                        res.sendStatus(200);
                         break;
                     case 'refund.succeeded':
-                        res.send(200);
+                        res.sendStatus(200);
                         break;
                     case 'transfer.succeeded':
-                        res.send(200);
+                        res.sendStatus(200);
                         break;
                     case 'red_envelope.sent':
-                        res.send(200);
+                        res.sendStatus(200);
                         break;
                     case 'red_envelope.received':
-                        res.send(200);
+                        res.sendStatus(200);
                         break;
                     default:
                         res.status(400).send('Invalid type value (' + event.type + ').');
