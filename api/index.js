@@ -51,7 +51,7 @@
                         res.sendStatus(200);
                         break;
                     case 'charge.succeeded':
-                        console.log('WEBHOOK = ' + JSON.stringify(charge, null, 2));
+                        console.log('WEBHOOK = ' + JSON.stringify(event, null, 2));
                         res.sendStatus(200);
                         break;
                     case 'refund.succeeded':
