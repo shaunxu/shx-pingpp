@@ -8,6 +8,11 @@
         var pingpp = require('pingpp')('sk_test_abDyPC8G8840GGGCOKfnX18G');
 
         app.post('/api/pay', function (req, res, next) {
+            console.log(JSON.stringify({
+                ip: req.ip,
+                ips: req.ips
+            }, null, 2));
+
             pingpp.charges.create({
                 subject: 'Worktile',
                 body: '企业版付费',
