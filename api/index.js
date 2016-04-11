@@ -30,6 +30,8 @@
                     res.status(500).send(error);
                 }
                 else {
+                    console.log('CHARGE = ' + JSON.stringify(charge, null, 2));
+
                     res.send(charge);
                 }
             });
@@ -49,7 +51,7 @@
                         res.sendStatus(200);
                         break;
                     case 'charge.succeeded':
-                        console.log(JSON.stringify(event, null, 2));
+                        console.log('WEBHOOK = ' + JSON.stringify(charge, null, 2));
                         res.sendStatus(200);
                         break;
                     case 'refund.succeeded':
