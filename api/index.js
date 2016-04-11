@@ -26,7 +26,7 @@
                     id: 'app_5mbLi9zbTeX19qvf'
                 },
                 extra: {
-                    success_url: 'http://shx-pingpp.azurewebsites.net/success.html'
+                    success_url: 'http://13.75.108.66/success.html'
                 }
             }, function (error, charge) {
                 if (error) {
